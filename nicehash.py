@@ -29,14 +29,14 @@ stats = getStats()
 
 if len(stats.get("result").get("workers")) < workers_num:
 	print ""
-	print "First Check Fails. Workers < 2"
+	print "First Check Fails. Workers < " + workers_num
 	print stats
 	print ""
 	time.sleep(45)
 	stats = getStats()
 	if len(stats.get("result").get("workers")) < workers_num:
 		print ""
-		print "Second Check Fails. Workers<2. Some workers DOWN"
+		print "Second Check Fails. Workers < " + workers_num + " Some workers DOWN"
 		print stats
 		print ""
 		time.sleep(45)
@@ -44,7 +44,7 @@ if len(stats.get("result").get("workers")) < workers_num:
 		if len(stats.get("result").get("workers")) < workers_num:
                		sendAlert("Nicehash worker DOWN. Please fix it!","nicehash")
 			print ""
-    			print "Third Check Fails. Workers<2. Some workers DOWN"
+    			print "Third Check Fails. Workers < " + workers_num + " Some workers DOWN"
                		print stats
 			print ""
 			print time.strftime("%Y-%m-%d %H:%M:%S")
